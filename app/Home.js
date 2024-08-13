@@ -1,9 +1,10 @@
 import { StyleSheet, Text, View } from "react-native";
 import CustomButton from "../components/CustomButton";
+import UCS from "../components/UCS";
 
 export default function Home() {
   return (
-    <View style={styles.buttonContainer}>
+    <UCS>
         <View style={styles.circuloDifuminado} />
         <Text>
             hola
@@ -11,7 +12,7 @@ export default function Home() {
         <CustomButton href="/Login" id="iniciar-botton" label='Iniciar Sesion'>
             Registrarseg
         </CustomButton>
-    </View>
+    </UCS>
   )
 }
 
