@@ -1,40 +1,28 @@
 import { StyleSheet, View, Pressable, Text } from "react-native";
 import { Link } from "expo-router";
 
-export default function CustomButton({ color, href, children }) {
-  console.log(color);
+export default function CustomButton({ bgColor, href, children }) {
   return (
-    <Link asChild href={href}>
-        <Pressable style={styles.button}>
-          <Text style={styles.buttonLabel}>{children}</Text>
-        </Pressable>
+    <Link
+      asChild
+      style={[{ backgroundColor: bgColor }, styles.buttonContainer]}
+      href={href}
+    >
+      <Pressable>
+        <Text className="text-white text-base">{children}</Text>
+      </Pressable>
     </Link>
   );
 }
 
 const styles = StyleSheet.create({
   buttonContainer: {
-    backgroundColor: "#f00",
-    width: 320,
-    height: 68,
-    marginHorizontal: 20,
-    alignItems: "center",
-    justifyContent: "center",
-    padding: 3,
-  },
-  button: {
-    borderRadius: 10,
     width: "100%",
-    height: "100%",
+    textAlign: "center",
+    paddingVertical: 15,
     alignItems: "center",
-    justifyContent: "center",
-    flexDirection: "row",
+    borderRadius: 25,
   },
-  buttonIcon: {
-    paddingRight: 8,
-  },
-  buttonLabel: {
-    color: "#fff",
-    fontSize: 16,
-  },
+
+  
 });

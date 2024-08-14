@@ -1,8 +1,7 @@
-import { Text, View } from "react-native";
-import Login from "./Login.js";
 import Home from "./Home.js";
+import AuthScreen from "./AuthScreen.jsx";
 
 export default function Page() {
-    const secionIniciada = true
-    return secionIniciada ? <Home /> : <Login />
+  const secionIniciada = false;
+  return secionIniciada ? <Home /> : <AuthScreen />;
 }

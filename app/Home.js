@@ -6,11 +6,11 @@ export default function Home() {
   return (
     <UCS>
         <View style={styles.circuloDifuminado} />
-        <Text>
+        <Text className="text-white texxt-2xl">
             hola
         </Text>
-        <CustomButton href="/Login" id="iniciar-botton" label='Iniciar Sesion'>
-            Registrarseg
+        <CustomButton color="white" bgColor="#1D3466" href="/Login">
+            Registrarse
         </CustomButton>
     </UCS>
   )
