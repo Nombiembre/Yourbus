@@ -6,7 +6,7 @@ export default function Button({ children, href, bgColor }) {
   return (
     <Link asChild href={href}>
       <TouchableOpacity
-        className={`bg-[#1b1b1b] rounded-full p-`}
+        className={`bg-[#1b1b1b] rounded-full p-4`}
         style={{ backgroundColor: bgColor }}
       >
         <Text className="text-center text-base text-white">{children}</Text>
