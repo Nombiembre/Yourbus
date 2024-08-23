@@ -1,20 +1,18 @@
 import { Text, View } from "react-native";
 import UCS from "../components/UCS";
-import CustomButton from "../components/CustomButton";
-import Button from "../components/Button";
+import OtroBoton from "../components/OtroBoton";
 
 export default function AuthScreen() {
   return (
     <UCS>
       <Text className="mx-auto text-white text-6xl">YourBus</Text>
-      {/* <Text style={{ color: "white", marginHorizontal: "auto", fontSize: 72}}>YourBus</Text> */}
-      <View style={{ gap: 10, marginTop: "auto" }}>
-        <Button bgColor="#1D3466" href="/Login">
-          Iniciar Sesión
-        </Button>
-        <Button bgColor="#1b1b1b" href="/Register">
-          Registrarse
-        </Button>
+      <View style={{ gap: 12, marginTop: "auto", backgroundColor: "whit" }}>
+        <OtroBoton bgColor="#1D3466" enlace="/Login">
+          Login
+        </OtroBoton>
+        <OtroBoton bgColor="#111111" enlace="/Register">
+          Register
+        </OtroBoton>
       </View>
     </UCS>
   );
