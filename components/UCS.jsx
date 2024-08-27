@@ -7,7 +7,7 @@ export default function UCS({ children, classes }) {
         { backgroundColor: "#050505", flexGrow: 1, padding: 12 },
         { classes },
       ]}
-      className="pt-20"
+      className={`pt-20 ${classes}`}
     >
       <Image
         source={require("../assets/CircleBlur.png")}

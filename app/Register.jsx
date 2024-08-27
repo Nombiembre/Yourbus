@@ -25,14 +25,21 @@ export default function Register() {
         console.log("Signed in:", user);
       })
       .catch((error) => {
-        // Error; you can inspect the code: error.code
         alert(error);
       });
   };
 
+  let lastNameInput = null;
+
+  const focusInput = () => {
+    if (lastNameInput) {
+      lastNameInput.focus();
+    }
+  };
+
   return (
-    <UCS>
-      <View style={{ gap: 10, marginBottom: 15, marginTop: "auto" }}>
+    <UCS classes="gap-4 justify-end">
+      <View style={{ gap: 10}}>
         <Input
           placeholder="Correo"
           onChangeText={(text) => {
@@ -49,19 +56,26 @@ export default function Register() {
           <Feather name="lock" size={16} color="#999" />
         </Input>
       </View>
-      <View className="flex-row gap-4 justify-center py-2">
-        <Checkbox onValueChange={setTerms} className="bg-white" color="blue" />
-        <Text className="text-white text-sm">
-          Acepto los términos y condiciones
-        </Text>
-      </View>
       <TouchableOpacity
         disabled={!terms}
-        className="rounded-full bg-primary p-4"
-        onPress={() => alert(terms)}
+        className={`rounded-full bg-primary p-4 ${terms ? "" : "opacity-20"}`}
+        onPress={handleCreateUser}
       >
-        <Text className="text-white text-center">Entrar</Text>
+        <Text className="text-white text-center">Register</Text>
       </TouchableOpacity>
+      <View className="flex-row gap-4 justify-center">
+        <Checkbox
+          onValueChange={setTerms}
+          className=""
+          value={terms}
+          color="#222"
+          aria-labelledby="labelUsername"
+          ref={(input) => { lastNameInput = input; }}
+        />
+        <Text className="text-white text-sm" onPress={focusInput}>
+          Aceptó los términos y condiciones
+        </Text>
+      </View>
     </UCS>
   );
 }
