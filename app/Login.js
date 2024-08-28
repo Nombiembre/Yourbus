@@ -1,32 +1,17 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
 import UCS from "../components/UCS";
-import CustomButton from "../components/CustomButton";
 import Input from "../components/Input";
-import { useState } from "react";
-import { signInWithEmailAndPassword, getAuth } from "firebase/auth";
-import { firebaseConfig } from "../firebase";
-import { initializeApp } from "firebase/app";
-import { router } from "expo-router";
+import { useState, useContext } from "react";
+import { UserModel } from "../model/UserModel";
+import { AuthContext } from "../context/AuthContext";
 
 export default function Login() {
+
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState(false);
 
-  const app = initializeApp(firebaseConfig);
-  const auth = getAuth(app);
-
   const handleSignIn = () => {
-    signInWithEmailAndPassword(auth, username, password)
-      .then((userCredential) => {
-
-        const user = userCredential.user;
-        alert("Signed in:", user);
-        router.push("/(tabs)/index");
-      })
-      .catch((error) => {
-        // Error; you can inspect the code: error.code
-        alert(error);
-      });
+    UserModel.login(username, password);
   };
 
   return (
@@ -42,10 +27,7 @@ export default function Login() {
           onChangeText={(text) => setPassword(text)}
         />
       </View>
-      <TouchableOpacity
-        style={styles.buttonContainer}
-        onPress={handleSignIn}
-      >
+      <TouchableOpacity style={styles.buttonContainer} onPress={handleSignIn}>
         <Text style={{ color: "#fff", fontSize: 16 }}>Entrar</Text>
       </TouchableOpacity>
     </UCS>

@@ -1,6 +1,7 @@
 import { Text, View } from "react-native";
 import UCS from "../components/UCS";
 import OtroBoton from "../components/OtroBoton";
+import { Redirect } from "expo-router";
 
 export default function AuthScreen() {
   return (
