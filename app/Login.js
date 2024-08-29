@@ -16,10 +16,7 @@ export default function Login() {
   return (
     <AuthLayout>
       <View style={{ gap: 10, marginBottom: 15, marginTop: "auto" }}>
-        <Input
-          placeholder="Correo"
-          onChangeText={(text) => setUsername(text)}
-        />
+        <Input placeholder="Correo" onChangeText={(text) => setUsername(text)} />
         <Input
           placeholder="Contraseña"
           hidePassword={true}

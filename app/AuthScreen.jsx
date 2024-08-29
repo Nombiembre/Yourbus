@@ -5,10 +5,7 @@ import OtroBoton from "../src/components/OtroBoton";
 export default function AuthScreen() {
   return (
     <AuthLayout>
-      <Text
-        className="mx-auto text-white text-6xl"
-        style={{ color: "white", fontSize: 60 }}
-      >
+      <Text className="mx-auto text-white text-6xl" style={{ color: "white", fontSize: 60 }}>
         YourBus
       </Text>
       <View style={{ gap: 12, marginTop: "auto" }}>
