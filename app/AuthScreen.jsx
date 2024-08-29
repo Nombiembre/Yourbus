@@ -1,13 +1,17 @@
 import { Text, View } from "react-native";
-import UCS from "../components/UCS";
-import OtroBoton from "../components/OtroBoton";
-import { Redirect } from "expo-router";
+import AuthLayout from "../src/layouts/AuthLayout";
+import OtroBoton from "../src/components/OtroBoton";
 
 export default function AuthScreen() {
   return (
-    <UCS>
-      <Text className="mx-auto text-white text-6xl">YourBus</Text>
-      <View style={{ gap: 12, marginTop: "auto", backgroundColor: "whit" }}>
+    <AuthLayout>
+      <Text
+        className="mx-auto text-white text-6xl"
+        style={{ color: "white", fontSize: 60 }}
+      >
+        YourBus
+      </Text>
+      <View style={{ gap: 12, marginTop: "auto" }}>
         <OtroBoton bgColor="#1D3466" enlace="/Login">
           Login
         </OtroBoton>
@@ -15,6 +19,6 @@ export default function AuthScreen() {
           Register
         </OtroBoton>
       </View>
-    </UCS>
+    </AuthLayout>
   );
 }

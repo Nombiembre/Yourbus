@@ -1,12 +1,11 @@
 import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
-import UCS from "../components/UCS";
-import Input from "../components/Input";
+import AuthLayout from "../src/layouts/AuthLayout";
+import Input from "../src/components/Input";
 import { useState, useContext } from "react";
-import { UserModel } from "../model/UserModel";
-import { AuthContext } from "../context/AuthContext";
+import { UserModel } from "../src/model/UserModel";
+import { AuthContext } from "../src/context/AuthContext";
 
 export default function Login() {
-
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState(false);
 
@@ -15,7 +14,7 @@ export default function Login() {
   };
 
   return (
-    <UCS>
+    <AuthLayout>
       <View style={{ gap: 10, marginBottom: 15, marginTop: "auto" }}>
         <Input
           placeholder="Correo"
@@ -30,7 +29,7 @@ export default function Login() {
       <TouchableOpacity style={styles.buttonContainer} onPress={handleSignIn}>
         <Text style={{ color: "#fff", fontSize: 16 }}>Entrar</Text>
       </TouchableOpacity>
-    </UCS>
+    </AuthLayout>
   );
 }
 

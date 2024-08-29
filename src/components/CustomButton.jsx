@@ -1,12 +1,12 @@
-import { View, Text, TouchableOpacity } from "react-native";
-import React from "react";
-import { Link } from "expo-router";
+import { View, Text, TouchableOpacity } from 'react-native';
+import React from 'react';
+import { Link } from 'expo-router';
 
-export default function CustomButton({parametros, fondoColor}) {
+export default function CustomButton({ parametros, fondoColor }) {
   console.log(parametros);
   return (
     <Link asChild href={parametros.juanpa}>
-      <TouchableOpacity className="p-4 rounded-full" style={{backgroundColor: fondoColor}}>
+      <TouchableOpacity className="p-4 rounded-full" style={{ backgroundColor: fondoColor }}>
         <Text className="text-white text-center" style={style.texto}>
           {parametros.children}
         </Text>
@@ -17,17 +17,17 @@ export default function CustomButton({parametros, fondoColor}) {
 
 const style = {
   boton: {
-    backgroundColor: "#007AFF",
+    backgroundColor: '#007AFF',
     width: 200,
     height: 50,
-    alignItems: "center",
-    justifyContent: "center",
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   texto: {
     fontSize: 20,
-    fontWeight: "bold",
-    color: "white",
-    textAlign: "center",
+    fontWeight: 'bold',
+    color: 'white',
+    textAlign: 'center',
   },
 };
 

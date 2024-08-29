@@ -1,6 +1,6 @@
 import { View, Text, Image } from "react-native";
 
-export default function UCS({ children, classes }) {
+export default function AuthLayout({ children, classes }) {
   return (
     <View
       style={[

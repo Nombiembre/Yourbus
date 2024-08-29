@@ -1,14 +1,14 @@
 import { View, Text } from "react-native";
 import React, { useContext } from "react";
-import UCS from "../../components/UCS";
-import { AuthContext } from "../../context/AuthContext";
+import AuthLayout from "../../src/layouts/AuthLayout";
+import { AuthContext } from "../../src/context/AuthContext";
 
 export default function Home() {
   const data = useContext(AuthContext);
   console.log(data);
   return (
-    <UCS>
+    <AuthLayout>
       <Text className="text-white">HOME</Text>
-    </UCS>
+    </AuthLayout>
   );
 }

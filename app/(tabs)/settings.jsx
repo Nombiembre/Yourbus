@@ -1,12 +1,12 @@
 import { View, Text } from 'react-native'
 import React from 'react'
-import UCS from '../../components/UCS'
+import AuthLayout from '../../src/layouts/AuthLayout'
 
 const settings = () => {
   return (
-    <UCS>
+    <AuthLayout>
       <Text>settings</Text>
-    </UCS>
+    </AuthLayout>
   )
 }
 
