@@ -1,14 +1,10 @@
 import { firebaseConfig } from "../../firebase";
 import { initializeApp } from "firebase/app";
 import { createUserWithEmailAndPassword, getAuth, signInWithEmailAndPassword } from "firebase/auth";
-import React, { useContext } from "react";
-import { AuthContext } from "../context/AuthContext";
 import { router } from "expo-router";
-
 
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
-
 
 export class UserModel {
   static login(username, password) {

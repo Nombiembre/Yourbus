@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from 'react-native';
+import { View, Text, TextInput } from "react-native";
 
 export default function Input({ placeholder, hidePassword, onChangeText, children }) {
   return (
@@ -7,7 +7,7 @@ export default function Input({ placeholder, hidePassword, onChangeText, childre
       <TextInput
         className="ml-2 text-white w-full py-2 "
         placeholder={placeholder}
-        placeholderTextColor={'#999'}
+        placeholderTextColor={"#999"}
         secureTextEntry={hidePassword}
         onChangeText={onChangeText}
       />

@@ -1,6 +1,6 @@
-import { Text, TouchableOpacity } from 'react-native';
-import React from 'react';
-import { Link } from 'expo-router';
+import { Text, TouchableOpacity } from "react-native";
+import React from "react";
+import { Link } from "expo-router";
 
 export default function OtroBoton({ bgColor, children, enlace }) {
   return (
