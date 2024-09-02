@@ -6,7 +6,7 @@ export default function Layout() {
       screenOptions={{
         headerTitleAlign: "center",
         headerTransparent: true,
-        headerTintColor: "#666",
+        headerTintColor: "#fff",
       }}>
       <Stack.Screen name="AuthScreen" screenOptions={{ headerShown: false }} />
       <Stack.Screen name="Login" options={{ headerTitle: "Iniciar Sesión" }} />
