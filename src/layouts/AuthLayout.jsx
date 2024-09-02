@@ -1,9 +1,12 @@
-import { View, Text, Image } from "react-native";
+import { View, Image } from "react-native";
 
 export default function AuthLayout({ children, classes }) {
   return (
     <View
-      style={[{ backgroundColor: "#050505", flexGrow: 1, padding: 12 }, { classes }]}
+      style={[
+        { backgroundColor: "#0d0d0d", flexGrow: 1, paddingBottom: 70, paddingHorizontal: 12 },
+        { classes },
+      ]}
       className={`pt-20 ${classes}`}>
       <Image
         source={require("../assets/CircleBlur.png")}

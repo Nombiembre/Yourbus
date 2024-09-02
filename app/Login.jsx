@@ -4,8 +4,11 @@ import Input from "../src/components/Input";
 import { useState, useContext } from "react";
 import { UserModel } from "../src/model/UserModel";
 import { AuthContext } from "../src/context/AuthContext";
+import { Stack } from "expo-router";
 
 export default function Login() {
+  const data = useContext(AuthContext);
+  console.log(data);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState(false);
 

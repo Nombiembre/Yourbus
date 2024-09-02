@@ -35,7 +35,7 @@ export default function Register() {
       </View>
       <TouchableOpacity
         disabled={!terms}
-        className={`rounded-full bg-primary p-4 ${terms ? "" : "opacity-20"}`}
+        className={`rounded-full bg-blue-600 py-5 ${terms ? "" : "opacity-20"}`}
         onPress={handleCreateUser}>
         <Text className="text-white text-center">Register</Text>
       </TouchableOpacity>

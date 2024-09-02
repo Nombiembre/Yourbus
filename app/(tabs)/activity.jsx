@@ -1,13 +1,13 @@
-import { Text } from "react-native";
+import { View, Text } from "react-native";
 import React from "react";
 import HomeLayout from "../../src/layouts/HomeLayout";
 
-const settings = () => {
+const activity = () => {
   return (
     <HomeLayout>
-      <Text>settings</Text>
+      <Text>activity</Text>
     </HomeLayout>
   );
 };
 
-export default settings;
+export default activity;

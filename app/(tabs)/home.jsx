@@ -1,14 +1,14 @@
-import { View, Text } from "react-native";
+import { TextInput } from "react-native";
 import React, { useContext } from "react";
-import AuthLayout from "../../src/layouts/AuthLayout";
 import { AuthContext } from "../../src/context/AuthContext";
+import HomeLayout from "../../src/layouts/HomeLayout";
 
 export default function Home() {
   const data = useContext(AuthContext);
   console.log(data);
   return (
-    <AuthLayout>
-      <Text className="text-white">HOME</Text>
-    </AuthLayout>
+    <HomeLayout>
+      <TextInput></TextInput>
+    </HomeLayout>
   );
 }

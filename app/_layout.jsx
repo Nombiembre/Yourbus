@@ -4,9 +4,13 @@ export default function Layout() {
   return (
     <Stack
       screenOptions={{
-        headerShown: false,
+        headerTitleAlign: "center",
+        headerTransparent: true,
+        headerTintColor: "#666",
       }}>
-      <Stack.Screen name="(tabs)" />
+      <Stack.Screen name="AuthScreen" screenOptions={{ headerShown: false }} />
+      <Stack.Screen name="Login" options={{ headerTitle: "Iniciar Sesión" }} />
+      <Stack.Screen name="Register" options={{ headerTitle: "Registrarse" }} />
     </Stack>
   );
 }
