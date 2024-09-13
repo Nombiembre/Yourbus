@@ -1,4 +1,4 @@
-import { View, Text, TextInput } from "react-native";
+import { View, TextInput } from "react-native";
 
 export default function Input({ placeholder, hidePassword, onChangeText, children }) {
   return (

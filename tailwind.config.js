@@ -4,9 +4,11 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        primary: "#fff",
+        primary: "#1d3466",
       },
     },
   },
   plugins: [],
 };
+
+// primary: 1d3466

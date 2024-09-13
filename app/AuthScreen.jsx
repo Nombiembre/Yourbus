@@ -1,10 +1,7 @@
-import { Text, TouchableOpacity, View } from "react-native";
+import { Text, View } from "react-native";
 import AuthLayout from "../src/layouts/AuthLayout";
-import OtroBoton from "../src/components/OtroBoton";
+import LinkButton from "../src/components/LinkButton";
 import { Stack } from "expo-router";
-import AlejoBoton from "../src/components/AlejoBoton";
-import { FontAwesome5 } from "@expo/vector-icons";
-// import { LinearGradient } from "expo-linear-gradient";
 
 export default function AuthScreen() {
   return (
@@ -18,12 +15,12 @@ export default function AuthScreen() {
         YourBus
       </Text>
       <View style={{ gap: 12, marginTop: "auto" }}>
-        <OtroBoton bgColor="#1d3466" enlace="/Login">
+        <LinkButton class="bg-[#1d3466]" enlace="/Login">
           Iniciar Sesión
-        </OtroBoton>
-        <OtroBoton bgColor="#111111" enlace="/Register">
+        </LinkButton>
+        <LinkButton class="bg-zinc-900" enlace="/Register">
           Registrarse
-        </OtroBoton>
+        </LinkButton>
       </View>
     </AuthLayout>
   );

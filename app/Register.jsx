@@ -35,12 +35,12 @@ export default function Register() {
       </View>
       <TouchableOpacity
         disabled={!terms}
-        className={`rounded-full bg-blue-600 py-5 ${terms ? "" : "opacity-20"}`}
+        className={`rounded-full bg-[#1d3466] py-5 ${terms ? "" : "opacity-30"}`}
         onPress={handleCreateUser}>
-        <Text className="text-white text-center">Register</Text>
+        <Text className="text-white text-center">Registrarse</Text>
       </TouchableOpacity>
       <View className="flex-row gap-4 justify-center">
-        <Checkbox onValueChange={setTerms} className="" value={terms} color="#222" />
+        <Checkbox onValueChange={setTerms} className="" value={terms} color="#666" />
         <Text className="text-white text-sm">Aceptó los términos y condiciones</Text>
       </View>
     </AuthLayout>
