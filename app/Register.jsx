@@ -20,13 +20,17 @@ export default function Register() {
     <AuthLayout classes="gap-4 justify-end">
       <View style={{ gap: 10 }}>
         <Input
+          class="text-white"
           placeholder="Correo"
+          bgColor="#232323"
           onChangeText={(text) => {
             setUsername(text);
           }}>
           <Feather name="user" size={16} color="#999" />
         </Input>
         <Input
+          class="text-white"
+          bgColor="232323"
           placeholder="Contraseña"
           hidePassword={true}
           onChangeText={(text) => setPassword(text)}>

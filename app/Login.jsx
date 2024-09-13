@@ -20,16 +20,23 @@ export default function Login() {
   return (
     <AuthLayout>
       <View style={{ gap: 10, marginBottom: 15, marginTop: "auto" }}>
-        <Input placeholder="Correo" onChangeText={(text) => setUsername(text)}>
+        <Input
+          class="text-white"
+          bgColor="#232323"
+          placeholder="Correo"
+          onChangeText={(text) => setUsername(text)}>
           <Feather name="user" size={16} color="#999" />
         </Input>
         <Input
+          class="text-white"
           placeholder="Contraseña"
           hidePassword={true}
+          bgColor="#232323"
           onChangeText={(text) => setPassword(text)}>
           <Feather name="lock" size={16} color="#999" />
         </Input>
       </View>
+
       <LinearGradient
         className="rounded-full"
         locations={[0, 1]}
