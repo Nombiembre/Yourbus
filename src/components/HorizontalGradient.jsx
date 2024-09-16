@@ -1,6 +1,7 @@
-import { Text, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import React from "react";
 import { LinearGradient } from "expo-linear-gradient";
+import CustomText from "./common/CustomText";
 
 const HorizontalGradient = ({ gradientColors, children }) => {
   return (
@@ -11,7 +12,7 @@ const HorizontalGradient = ({ gradientColors, children }) => {
       end={{ x: 1, y: 1.4 }}
       colors={gradientColors}>
       <TouchableOpacity className={` rounded-full py-5`}>
-        <Text className="text-white text-center text-base">{children}</Text>
+        <CustomText className="text-white text-center text-base">{children}</CustomText>
       </TouchableOpacity>
     </LinearGradient>
   );

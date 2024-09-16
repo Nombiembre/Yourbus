@@ -1,18 +1,21 @@
-import { Stack, Tabs } from "expo-router";
+import { Tabs } from "expo-router";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import Info from "../../src/components/common/Info";
 
 export default function TabLayout() {
   return (
     <Tabs
       screenOptions={{
-        headerShown: false,
+        headerRight: () => <Info />,
+        headerTitle: "YourBus",
+        headerTitleAlign: "center",
         tabBarStyle: {
           minHeight: 60,
           paddingBottom: 8,
         },
-        tabBarActiveTintColor: "#050505",
+        tabBarActiveTintColor: "#334155",
         tabBarInactiveTintColor: "#b7b7b7",
       }}>
       <Tabs.Screen
@@ -26,7 +29,7 @@ export default function TabLayout() {
       <Tabs.Screen
         name="activity"
         options={{
-          title: "Actividad",
+          title: "Balance",
           tabBarIcon: ({ color, size }) => <Feather name="bar-chart-2" size={size} color={color} />,
         }}
       />

@@ -1,0 +1,32 @@
+[
+  {
+    "id": "Al01",
+    "empresaID": "01",
+    "empresa": "Alianza",
+    "placa": "",
+    "color": "",
+    "papeles": "",
+    "conductor": "",
+    "rutas": ""
+  },
+  {
+    "id": "Agui01",
+    "empresaID": "02",
+    "empresa": "Aguila",
+    "placa": "",
+    "color": "",
+    "papeles": "",
+    "conductor": "",
+    "rutas": ""
+  },
+  {
+    "id": "Flota01",
+    "empresaID": "03",
+    "empresa": "Flota Chia",
+    "placa": "",
+    "color": "",
+    "papeles": "",
+    "conductor": "",
+    "rutas": ""
+  }
+]

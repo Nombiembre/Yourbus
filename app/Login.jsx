@@ -1,11 +1,12 @@
-import { StyleSheet, Text, TouchableOpacity, View } from "react-native";
+import { StyleSheet, TouchableOpacity, View } from "react-native";
 import AuthLayout from "../src/layouts/AuthLayout";
-import Input from "../src/components/Input";
 import { useState, useContext } from "react";
 import { UserModel } from "../src/model/UserModel";
 import { AuthContext } from "../src/context/AuthContext";
 import { Feather } from "@expo/vector-icons";
 import { LinearGradient } from "expo-linear-gradient";
+import CustomText from "../src/components/common/CustomText";
+import Input from "../src/components/Input";
 
 export default function Login() {
   const data = useContext(AuthContext);
@@ -42,9 +43,11 @@ export default function Login() {
         locations={[0, 1]}
         start={{ x: 0, y: 0.5 }}
         end={{ x: 0.8, y: 0.5 }}
-        colors={["#3960b7", "#182c57"]}>
+        colors={["#3960b7", "#182c57"]}
+        // colors={["#333", "#151515"]}
+      >
         <TouchableOpacity style={styles.buttonContainer} onPress={handleSignIn}>
-          <Text style={{ color: "#fff", fontSize: 16 }}>Entrar</Text>
+          <CustomText style={{ color: "#fff", fontSize: 16 }}>Entrar</CustomText>
         </TouchableOpacity>
       </LinearGradient>
     </AuthLayout>

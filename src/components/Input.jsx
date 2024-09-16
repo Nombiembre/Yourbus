@@ -7,6 +7,8 @@ export default function Input({
   children,
   bgColor,
   class: classes,
+  roundedSmall,
+  viewClasses,
 }) {
   const bgColors = {
     black: "#131313",
@@ -16,12 +18,14 @@ export default function Input({
   console.log(Object.keys(bgColors));
 
   return (
-    <View style={{ backgroundColor: bgColor }} className="rounded-full flex-row items-center px-4 ">
+    <View
+      style={{ backgroundColor: bgColor }}
+      className={`flex-row items-center px-4 ${roundedSmall ? "rounded-xl" : "rounded-full"} ${viewClasses}`}>
       {children}
       <TextInput
         className={`ml-2 w-full py-2 ${classes}`}
         placeholder={placeholder}
-        placeholderTextColor={"#999"}
+        placeholderTextColor={"#777"}
         secureTextEntry={hidePassword}
         onChangeText={onChangeText}
       />

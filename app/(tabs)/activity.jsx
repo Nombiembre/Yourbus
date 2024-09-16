@@ -1,11 +1,14 @@
-import { View, Text } from "react-native";
 import React from "react";
 import HomeLayout from "../../src/layouts/HomeLayout";
+import HistoryItems from "../../src/sections/activity/HistoryItems";
+import { ScrollView } from "react-native";
 
 const activity = () => {
   return (
     <HomeLayout>
-      <Text>activity</Text>
+      <ScrollView showsVerticalScrollIndicator={false}>
+        <HistoryItems />
+      </ScrollView>
     </HomeLayout>
   );
 };

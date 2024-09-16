@@ -1,10 +1,11 @@
-import { View, Text, FlatList } from "react-native";
+import { View, FlatList } from "react-native";
 import React from "react";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Title from "../../components/common/Title";
+import CustomText from "../../components/common/CustomText";
 
 const Sugerencias = () => {
-  const info = [
+  const items = [
     {
       destino: "Terminal de Suesca/Alianza",
       tiempo: 7,
@@ -32,7 +33,7 @@ const Sugerencias = () => {
       <Title text="Sugerencias" />
       <FlatList
         className="mt-4"
-        data={info}
+        data={items}
         renderItem={(item) => {
           return (
             <View className="flex-row my-2" style={{ gap: 12 }}>
@@ -40,10 +41,12 @@ const Sugerencias = () => {
                 <FontAwesome5 name="bus" size={24} color="#64748b" />
               </View>
               <View className="justify-center">
-                <Text className="text-xl">{item.item.destino}</Text>
+                <CustomText className="text-xl">{item.item.destino}</CustomText>
                 <View className="flex-row gap-8">
-                  <Text className="text-lg text-slate-500">{item.item.tiempo} mins</Text>
-                  <Text className="text-lg text-slate-500">Bus {item.item.bus} </Text>
+                  <CustomText className="text-lg text-slate-500">
+                    {item.item.tiempo} mins
+                  </CustomText>
+                  <CustomText className="text-lg text-slate-500">Bus {item.item.bus} </CustomText>
                 </View>
               </View>
             </View>

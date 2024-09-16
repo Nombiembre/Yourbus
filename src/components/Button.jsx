@@ -1,7 +1,8 @@
-import { Text, TouchableOpacity } from "react-native";
+import { TouchableOpacity } from "react-native";
 import React from "react";
 import { Link } from "expo-router";
 import { LinearGradient } from "expo-linear-gradient";
+import CustomText from "./common/CustomText";
 
 export default function Button({ children, href, bgColor }) {
   return (
@@ -13,7 +14,7 @@ export default function Button({ children, href, bgColor }) {
         end={{ x: 0.8, y: 0.5 }}
         colors={["#3960b7", "#182c57"]}>
         <TouchableOpacity className="rounded-full p-4" style={{ backgroundColor: bgColor }}>
-          <Text className="text-center text-base text-white">{children}</Text>
+          <CustomText className="text-center text-base text-white">{children}</CustomText>
         </TouchableOpacity>
       </LinearGradient>
     </Link>

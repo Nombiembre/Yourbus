@@ -1,4 +1,4 @@
-import { View, Text, TouchableOpacity } from "react-native";
+import { View, TouchableOpacity } from "react-native";
 import React from "react";
 import AuthLayout from "../src/layouts/AuthLayout";
 import Input from "../src/components/Input";
@@ -6,6 +6,7 @@ import Feather from "@expo/vector-icons/Feather";
 import { useState } from "react";
 import Checkbox from "expo-checkbox";
 import { UserModel } from "../src/model/UserModel";
+import CustomText from "../src/components/common/CustomText";
 
 export default function Register() {
   const [username, setUsername] = useState("");
@@ -41,11 +42,11 @@ export default function Register() {
         disabled={!terms}
         className={`rounded-full bg-[#1d3466] py-5 ${terms ? "" : "opacity-30"}`}
         onPress={handleCreateUser}>
-        <Text className="text-white text-center">Registrarse</Text>
+        <CustomText className="text-white text-center">Registrarse</CustomText>
       </TouchableOpacity>
       <View className="flex-row gap-4 justify-center">
         <Checkbox onValueChange={setTerms} className="" value={terms} color="#666" />
-        <Text className="text-white text-sm">Aceptó los términos y condiciones</Text>
+        <CustomText className="text-white text-sm">Aceptó los términos y condiciones</CustomText>
       </View>
     </AuthLayout>
   );
