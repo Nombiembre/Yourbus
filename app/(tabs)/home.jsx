@@ -55,21 +55,6 @@ export default function Home() {
     <HomeLayout>
       <ScrollView showsVerticalScrollIndicator={false}>
         <Search location={location2} />
-        <View
-          className="relative p-4 border border-slate-200 bg-white rounded-lg my-2"
-          style={{ gap: 6 }}>
-          {history.map((item, index) => {
-            return (
-              <View
-                className={`flex-row items-center ${index !== history.length - 1 && "border-b border-slate-200 pb-2"}`}
-                style={{ gap: 6 }}
-                key={index}>
-                <MaterialIcons name="history" size={24} color={color} />
-                <Text className="text-slate-500 text-lg">{item}</Text>
-              </View>
-            );
-          })}
-        </View>
         <Map location={location2} />
         <Rutas />
       </ScrollView>

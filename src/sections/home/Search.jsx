@@ -10,7 +10,7 @@ const Search = ({ location2 }) => {
   const color = "#64748b";
 
   return (
-    <View style={{ gap: 12 }} className="relative rounded-xl overflow-hidden mt-1">
+    <View style={{ gap: 12 }} className="relative rounded-xl overflow-hidden mt-1 mb-4">
       <Input
         viewClasses="relative border border-slate-200"
         bgColor="#fff"

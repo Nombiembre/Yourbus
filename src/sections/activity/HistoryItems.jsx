@@ -1,7 +1,9 @@
-import { View, Text } from "react-native";
+import { View } from "react-native";
 import React from "react";
 import CustomText from "../../components/common/CustomText";
 import Feather from "@expo/vector-icons/Feather";
+import { LinearGradient } from "expo-linear-gradient";
+import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 const HistoryItems = () => {
   const transactionHistory = [
@@ -24,7 +26,7 @@ const HistoryItems = () => {
       amount: "5,500",
       paymentMethod: "Transferencia Bancaria",
       destino: "Andino",
-      estado: "Pendiente",
+      estado: "Cancelado",
     },
     {
       date: "2022-05-10",
@@ -38,7 +40,7 @@ const HistoryItems = () => {
       amount: "6,300",
       paymentMethod: "Tarjeta Débito",
       destino: "Parque La Colina",
-      estado: "Rechazado",
+      estado: "Cancelado",
     },
     {
       date: "2022-05-14",
@@ -52,7 +54,7 @@ const HistoryItems = () => {
       amount: "4,800",
       paymentMethod: "Efectivo",
       destino: "El Retiro",
-      estado: "Pendiente",
+      estado: "Cancelado",
     },
     {
       date: "2022-05-20",
@@ -73,14 +75,14 @@ const HistoryItems = () => {
       amount: "5,300",
       paymentMethod: "Transferencia Bancaria",
       destino: "Andino",
-      estado: "Rechazado",
+      estado: "Cancelado",
     },
     {
       date: "2022-05-27",
       amount: "8,400",
       paymentMethod: "Efectivo",
       destino: "Unicentro",
-      estado: "Pendiente",
+      estado: "Cancelado",
     },
     {
       date: "2022-05-30",
@@ -96,19 +98,37 @@ const HistoryItems = () => {
       {transactionHistory.map((item, i) => {
         const { date, amount, paymentMethod, destino, estado } = item;
         let displayDate = new Date(date).toLocaleDateString();
+        // random id with only numbers, not characters
+        const id = Math.floor(Math.random() * 100000000000);
+
         return (
-          <View className="flex-row items-center gap-x-2 bg-white border border-slate-200 py-2 rounded-xl">
-            <View className="p-3 bg-blue-100 rounded-xl">
-              <Feather name="credit-card" size={24} color="black" />
-            </View>
+          <View
+            className="flex-row items-center bg-white border border-slate-200 py-2 px-2 rounded-xl"
+            style={{ gap: 12 }}>
+            <LinearGradient
+              locations={[0, 1]}
+              start={{ x: 0.1, y: 0.5 }}
+              colors={["#d8e3f9", "#aac0ee"]}
+              className="p-3 rounded-xl">
+              {paymentMethod === "Efectivo" ? (
+                <FontAwesome6 name="money-bill-alt" size={24} color="#475569" />
+              ) : (
+                <FontAwesome6 name="credit-card" size={24} color="#475569" />
+              )}
+            </LinearGradient>
             <View className="flex-1 flex-row items-center justify-between">
               <View>
-                <CustomText className="text-black text-lg font-semibold">{destino}</CustomText>
-                <CustomText className="text-black ">{paymentMethod}</CustomText>
+                <CustomText className="text-slate-600 text-lg font-semibold">{destino}</CustomText>
+                <CustomText className="text-slate-500 mb-1">{paymentMethod}</CustomText>
+                <CustomText className="text-slate-400 ">ID: {id}</CustomText>
               </View>
-              <View className="pr-4">
-                <CustomText className="text-black text-lg font-semibold">$ {amount} COP</CustomText>
-                <CustomText className="text-black text-right">{displayDate}</CustomText>
+              <View>
+                <CustomText className="text-slate-600 text-lg font-bold">$ {amount} COP</CustomText>
+                <CustomText
+                  className={`ml-auto text-xs text-center p-1 my-1 font-semibold rounded-lg ${estado === "Confirmado" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"}`}>
+                  {estado}
+                </CustomText>
+                <CustomText className="text-slate-400 text-right">{displayDate}</CustomText>
               </View>
             </View>
           </View>
@@ -119,3 +139,4 @@ const HistoryItems = () => {
 };
 
 export default HistoryItems;
+// c++ permita capturar una palabra, por medio de una encriptacion como guardaria la palabra, y luego el proceso de desencriptar

@@ -91,24 +91,6 @@ const Options = () => {
       bgColor: "bg-slate-400",
       href: "/Idioma",
     },
-    {
-      text: "Ayuda",
-      icon: <Entypo name="help" size={size} color={iconColor} />,
-      bgColor: "bg-slate-400",
-      href: "/Ayuda",
-    },
-    {
-      text: "Invitar Amigos",
-      icon: <Octicons name="cross-reference" size={size} color={iconColor} />,
-      bgColor: "bg-slate-400",
-      href: "/InvitarAmigos",
-    },
-    {
-      text: "Idioma",
-      icon: <Ionicons name="language" size={size} color={iconColor} />,
-      bgColor: "bg-slate-400",
-      href: "/Idioma",
-    },
   ];
 
   return (

@@ -6,6 +6,6 @@ import { Redirect } from "expo-router";
 export default function Page() {
   const sesuinIniciada = false;
 
-  return <Redirect href="/home" />;
-  // return <AuthProvider>{sesuinIniciada ? <Home /> : <AuthScreen />}</AuthProvider>;
+  // return <Redirect href="/home" />;
+  return <AuthProvider>{sesuinIniciada ? <Home /> : <AuthScreen />}</AuthProvider>;
 }

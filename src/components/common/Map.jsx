@@ -38,7 +38,7 @@ const Map = ({ location, ...props }) => {
         altitudeAccuracy: 1,
         heading: 0,
         latitude: 4.8773197,
-        longitude: -74.0428127,
+        longitude: 4.8773197,
         speed: 0,
       },
       mocked: false,
@@ -53,10 +53,10 @@ const Map = ({ location, ...props }) => {
     <View className="border border-slate-200 rounded-lg min-h-[225px]" style={styles.container}>
       <MapView
         initialRegion={{
-          latitude: 4.845938957316678,
-          longitude: -74.02994072861068,
-          latitudeDelta: 0.012,
-          longitudeDelta: 0.02,
+          latitude: 4.8776197,
+          longitude: -74.0428427,
+          latitudeDelta: 0.001,
+          longitudeDelta: 0.007,
         }}
         style={styles.map}>
         <Marker coordinate={{ latitude: latitude, longitude: longitude }}>
