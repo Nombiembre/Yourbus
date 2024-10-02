@@ -3,13 +3,11 @@ import React from "react";
 import { pfp } from "../../utils/images";
 import Title from "../../components/common/Title";
 import CustomText from "../../components/common/CustomText";
+import { getAuth } from "firebase/auth";
 
 const Perfil = () => {
-  const userInfo = {
-    name: "Enmanuel Toro",
-    email: "etoro@unicoc.edu.co",
-    phone: "3133409843",
-  };
+  const auth = getAuth();
+  const { displayName, email, phoneNumber } = auth.currentUser;
 
   return (
     <View
@@ -17,9 +15,9 @@ const Perfil = () => {
       style={{ gap: 14 }}>
       <Image source={pfp} className="rounded-full h-20 w-20" />
       <View>
-        <Title text={userInfo.name} />
-        <CustomText className="text-slate-500">{userInfo.email}</CustomText>
-        <CustomText className="text-slate-500">{userInfo.phone}</CustomText>
+        <Title text={displayName} />
+        <CustomText className="text-slate-500">{email}</CustomText>
+        <CustomText className="text-slate-500">{phoneNumber}</CustomText>
       </View>
     </View>
   );

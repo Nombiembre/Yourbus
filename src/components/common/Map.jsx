@@ -5,8 +5,6 @@ import busIcon from "../../assets/Buses/busIcon.png";
 import busIcon2 from "../../assets/Buses/busIcon2.png";
 
 const Map = ({ location, ...props }) => {
-  console.log(location);
-
   const buses = [
     {
       latitude: 4.877,
@@ -50,10 +48,10 @@ const Map = ({ location, ...props }) => {
   const { location2 } = e;
   const { latitude, longitude } = location2.coords;
   return (
-    <View className="border border-slate-200 rounded-lg min-h-[225px]" style={styles.container}>
+    <View className="border border-slate-200 rounded-lg min-h-[555px]" style={styles.container}>
       <MapView
         initialRegion={{
-          latitude: 4.8776197,
+          latitude: 4.8778197,
           longitude: -74.0428427,
           latitudeDelta: 0.001,
           longitudeDelta: 0.007,

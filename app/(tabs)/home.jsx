@@ -1,13 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import HomeLayout from "../../src/layouts/HomeLayout";
 import Search from "../../src/sections/home/Search";
 import Rutas from "../../src/sections/home/Rutas";
 import Map from "../../src/components/common/Map";
 import * as Location from "expo-location";
-import { ScrollView, Text, View } from "react-native";
-import { MaterialIcons } from "@expo/vector-icons";
+import { ScrollView, View } from "react-native";
+import Title from "../../src/components/common/Title";
+import { getAuth } from "firebase/auth";
+import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
 
 export default function Home() {
+  const auth = getAuth();
+  const { displayName } = auth.currentUser;
+
+  // prettier-ignore
+
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
 
@@ -30,9 +37,6 @@ export default function Home() {
   } else if (location) {
     text = JSON.stringify(location);
   }
-  console.log("###############################################");
-  console.log(text);
-  console.log("###############################################");
 
   const location2 = {
     coords: {
@@ -48,15 +52,16 @@ export default function Home() {
     timestamp: 1726351654397,
   };
 
-  const history = ["Fontanar", "Centro Chia"];
-  const color = "#64748b";
-
   return (
     <HomeLayout>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <Search location={location2} />
+        <View className="px-5 ">
+          <Search className="bg-black" location={location2} />
+        </View>
         <Map location={location2} />
-        <Rutas />
+        <View className="px-5 pt-2 rounded-t-[40px] bg-white border-t border-slate-200 relative -top-12">
+          <Rutas />
+        </View>
       </ScrollView>
     </HomeLayout>
   );

@@ -103,6 +103,7 @@ const HistoryItems = () => {
 
         return (
           <View
+            key={i}
             className="flex-row items-center bg-white border border-slate-200 py-2 px-2 rounded-xl"
             style={{ gap: 12 }}>
             <LinearGradient
@@ -118,14 +119,18 @@ const HistoryItems = () => {
             </LinearGradient>
             <View className="flex-1 flex-row items-center justify-between">
               <View>
-                <CustomText className="text-slate-600 text-lg font-semibold">{destino}</CustomText>
+                <CustomText className="text-slate-600 text-lg font-onest-medium">
+                  {destino}
+                </CustomText>
                 <CustomText className="text-slate-500 mb-1">{paymentMethod}</CustomText>
                 <CustomText className="text-slate-400 ">ID: {id}</CustomText>
               </View>
               <View>
-                <CustomText className="text-slate-600 text-lg font-bold">$ {amount} COP</CustomText>
+                <CustomText className="text-slate-600 text-lg font-onest-semibold">
+                  $ {amount} COP
+                </CustomText>
                 <CustomText
-                  className={`ml-auto text-xs text-center p-1 my-1 font-semibold rounded-lg ${estado === "Confirmado" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"}`}>
+                  className={`ml-auto text-xs text-center p-1 my-1 font-onest-semibold rounded-lg ${estado === "Confirmado" ? "bg-green-200 text-green-700" : "bg-red-200 text-red-700"}`}>
                   {estado}
                 </CustomText>
                 <CustomText className="text-slate-400 text-right">{displayDate}</CustomText>

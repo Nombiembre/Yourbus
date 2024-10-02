@@ -4,7 +4,7 @@ export default function AuthLayout({ children, classes }) {
   return (
     <View
       style={[
-        { backgroundColor: "#0d0d0d", flexGrow: 1, paddingBottom: 70, paddingHorizontal: 12 },
+        { backgroundColor: "#fff", flexGrow: 1, paddingBottom: 70, paddingHorizontal: 12 },
         { classes },
       ]}
       className={`pt-20 ${classes}`}>

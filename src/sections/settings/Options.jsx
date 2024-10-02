@@ -91,6 +91,12 @@ const Options = () => {
       bgColor: "bg-slate-400",
       href: "/Idioma",
     },
+    {
+      text: "Cerrar sesión",
+      icon: <Feather name="log-out" size={size} color={iconColor} />,
+      bgColor: "bg-red-500",
+      href: "/CerrarSesion",
+    },
   ];
 
   return (
@@ -98,7 +104,7 @@ const Options = () => {
       <View className="bg-white mb-4 px-2 mt-0 rounded-xl border border-slate-200">
         {accountSettings1.map((item, i) => {
           return (
-            <Link asChild href={`/settings${item.href}`}>
+            <Link asChild href={`/settings${item.href}`} key={i}>
               <TouchableOpacity
                 activeOpacity={0.6}
                 className={`py-3 flex-row items-center justify-between ${i !== accountSettings1.length - 1 && "border-b border-slate-200"}`}>
@@ -120,7 +126,7 @@ const Options = () => {
       <View className="bg-white px-2 mt-0 rounded-xl border border-slate-200">
         {accountSettings2.map((item, i) => {
           return (
-            <Link asChild href={`/settings${item.href}`}>
+            <Link asChild href={`/settings${item.href}`} key={i}>
               <TouchableOpacity
                 activeOpacity={0.6}
                 className={`py-3 flex-row items-center justify-between ${i !== accountSettings1.length - 1 && "border-b border-slate-200"}`}>

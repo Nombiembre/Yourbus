@@ -1,13 +1,15 @@
 import React from "react";
 import HomeLayout from "../../src/layouts/HomeLayout";
 import HistoryItems from "../../src/sections/activity/HistoryItems";
-import { ScrollView } from "react-native";
+import { ScrollView, View } from "react-native";
 
 const activity = () => {
   return (
     <HomeLayout>
       <ScrollView showsVerticalScrollIndicator={false}>
-        <HistoryItems />
+        <View className="px-5">
+          <HistoryItems />
+        </View>
       </ScrollView>
     </HomeLayout>
   );

@@ -1,8 +1,12 @@
 import { Text } from "react-native";
 import React from "react";
 
-const CustomText = ({ children, ...props }) => {
-  return <Text {...props}>{children}</Text>;
+const CustomText = ({ children, className: classes, ...props }) => {
+  return (
+    <Text className={`font-onest-regular ${classes}`} {...props}>
+      {children}
+    </Text>
+  );
 };
 
 export default CustomText;

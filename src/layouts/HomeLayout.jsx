@@ -1,9 +1,9 @@
 import { View } from "react-native";
 import React from "react";
 
-const HomeLayout = ({ children, bgColor }) => {
+const HomeLayout = ({ children, className: classes }) => {
   return (
-    <View style={[{ flexGrow: 1, padding: 12, gap: 8 }]} className={`bg-slate-50`}>
+    <View style={[{ flexGrow: 1, gap: 8 }]} className={`bg-white ${classes}`}>
       {children}
     </View>
   );

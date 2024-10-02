@@ -2,47 +2,85 @@ import { Tabs } from "expo-router";
 import Feather from "@expo/vector-icons/Feather";
 import FontAwesome5 from "@expo/vector-icons/FontAwesome5";
 import Ionicons from "@expo/vector-icons/Ionicons";
-import Info from "../../src/components/common/Info";
+import { View } from "react-native";
+import CustomText from "../../src/components/common/CustomText";
+import Constants from "expo-constants";
+import { StatusBar } from "expo-status-bar";
+
+const TabIcon = ({ icon, color, name, focused }) => {
+  return (
+    <View className="flex items-center justify-center gap-2">
+      {icon}
+      <CustomText
+        className={`${focused ? "font-onest-semibold" : "font-onest-regular"} text-xs`}
+        style={{ color: color }}>
+        {name}
+      </CustomText>
+    </View>
+  );
+};
 
 export default function TabLayout() {
   return (
-    <Tabs
-      screenOptions={{
-        headerRight: () => <Info />,
-        headerTitle: "YourBus",
-        headerTitleAlign: "center",
-        tabBarStyle: {
-          minHeight: 60,
-          paddingBottom: 8,
-        },
-        tabBarActiveTintColor: "#334155",
-        tabBarInactiveTintColor: "#b7b7b7",
-      }}>
-      <Tabs.Screen
-        name="home"
-        options={{
-          title: "Inicio",
-          tabBarIcon: ({ color, size }) => <Ionicons name="home" color={color} size={size} />,
-        }}
-      />
+    <>
+      <Tabs
+        screenOptions={{
+          headerStyle: {
+            height: Constants.statusBarHeight + 5,
+          },
+          headerTitle: "",
+          tabBarStyle: {
+            borderTopWidth: 1,
+            height: 64,
+          },
+          tabBarActiveTintColor: "#334155",
+          tabBarInactiveTintColor: "#b7b7b7",
+          tabBarShowLabel: false,
+        }}>
+        <Tabs.Screen
+          name="home"
+          options={{
+            headerShown: false,
+            tabBarIcon: ({ color, size, focused }) => (
+              <TabIcon
+                icon={<Ionicons name="home" color={color} size={size} />}
+                color={color}
+                name="Inicio"
+                focused={focused}
+              />
+            ),
+          }}
+        />
 
-      <Tabs.Screen
-        name="activity"
-        options={{
-          title: "Balance",
-          tabBarIcon: ({ color, size }) => <Feather name="bar-chart-2" size={size} color={color} />,
-        }}
-      />
+        <Tabs.Screen
+          name="activity"
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              <TabIcon
+                icon={<Feather name="bar-chart-2" size={size} color={color} />}
+                color={color}
+                name="Historial"
+                focused={focused}
+              />
+            ),
+          }}
+        />
 
-      <Tabs.Screen
-        name="settings"
-        options={{
-          title: "Cuenta",
-          tabBarIcon: ({ color, size }) => (
-            <FontAwesome5 name="user-alt" size={size} color={color} />
-          ),
-        }}
-      />
-    </Tabs>
+        <Tabs.Screen
+          name="settings"
+          options={{
+            tabBarIcon: ({ color, size, focused }) => (
+              <TabIcon
+                icon={<FontAwesome5 name="user-alt" size={size} color={color} />}
+                color={color}
+                name="Cuenta"
+                focused={focused}
+              />
+            ),
+          }}
+        />
+      </Tabs>
+      <StatusBar style="auto" />
+    </>
   );
 }

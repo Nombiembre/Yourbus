@@ -1,0 +1,25 @@
+{
+  "_redirectEventId": "undefined",
+  "apiKey": "AIzaSyDEkmUtbcftDwez34zIndSGID5n_ZFHmv0",
+  "appName": "[DEFAULT]",
+  "createdAt": "1727809286832",
+  "displayName": "Emmanuel Toro ",
+  "email": "etoro@unicoc.edu.co",
+  "emailVerified": false,
+  "isAnonymous": false,
+  "lastLoginAt": "1727809286832",
+  "phoneNumber": "3133409843",
+  "photoURL": "https://example.com/jane-q-user/profile.jpg",
+  "providerData": [
+    [
+      "Object"
+    ]
+  ],
+  "stsTokenManager": {
+    "accessToken": "eyJhbGciOiJSUzI1NiIsImtpZCI6IjhkNzU2OWQyODJkNWM1Mzk5MmNiYWZjZWI2NjBlYmQ0Y2E1OTMxM2EiLCJ0eXAiOiJKV1QifQ.eyJuYW1lIjoiRW1tYW51ZWwgVG9ybyAiLCJwaWN0dXJlIjoiaHR0cHM6Ly9leGFtcGxlLmNvbS9qYW5lLXEtdXNlci9wcm9maWxlLmpwZyIsImlzcyI6Imh0dHBzOi8vc2VjdXJldG9rZW4uZ29vZ2xlLmNvbS95b3VyYnVzLTViNTM1IiwiYXVkIjoieW91cmJ1cy01YjUzNSIsImF1dGhfdGltZSI6MTcyNzgwOTM1NCwidXNlcl9pZCI6IllXUk9SY3dSS2FaVUZrZ0FMNUhja1d4SWZWazEiLCJzdWIiOiJZV1JPUmN3UkthWlVGa2dBTDVIY2tXeElmVmsxIiwiaWF0IjoxNzI3ODA5MzU0LCJleHAiOjE3Mjc4MTI5NTQsImVtYWlsIjoiZXRvcm9AdW5pY29jLmVkdS5jbyIsImVtYWlsX3ZlcmlmaWVkIjpmYWxzZSwiZmlyZWJhc2UiOnsiaWRlbnRpdGllcyI6eyJlbWFpbCI6WyJldG9yb0B1bmljb2MuZWR1LmNvIl19LCJzaWduX2luX3Byb3ZpZGVyIjoicGFzc3dvcmQifX0.Qck85_GVgq_iT0EeXoVJ0MkNUcektxUvqWDSj2032C8pzrQJl_12yZRszIiqFBy-fewg2_WV4sE4xw8MdLNC6Aifpf-WaFxAQHn9swjInS7wD7d0OX5O5w9h5wHGP0KIZL6IRfwSzb-nCqAcTCDXVJZWebkXUFlsuzAjj-iXRGqOqLv5BwxKyUiRikzdxifqll7AdMa8PN-INVmDkIYY6ntTwuxTX80rJAgfc3hJOGYpSmENobn9NmxC-pUrZoY86TsKqEwO6hLh8DU4R3obGpHacnr7t7S8Bx8vfJ3hDCPNfbRC4a0b7TbhbQQ8cw6ym5QB_xhlTM5nfAaaf6ijEg",
+    "expirationTime": 1727812954581,
+    "refreshToken": "AMf-vBwxj4g8bVyIXauN1JvYCgeC9UUsXLzplnD2ggTWt06zdzw8ty9rGaZyrs8ckChiNMDqlA-n1TDCC5Agsg77JCk2U_OsQMZ60DdbI8B_mwu6aBOjihJzYlVp29wfr-T3dEKr77_7Z8mUH7o32ydjxIrIH74Ra5bj21ylSUNpjzx2bofaiRsCi9VlIFONaB-O5LtspsODtaZr-VLlqwdWQI6gWDaN3S_znJQ7ptjSb-vvOKwZN-g"
+  },
+  "tenantId": "undefined",
+  "uid": "YWRORcwRKaZUFkgAL5HckWxIfVk1"
+}
