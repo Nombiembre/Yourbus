@@ -4,15 +4,16 @@ import Entypo from "@expo/vector-icons/Entypo";
 import { Text, View } from "react-native";
 import Map from "../../components/common/Map";
 import MaterialIcons from "@expo/vector-icons/MaterialIcons";
+import Constants from "expo-constants";
 
-const Search = ({ location2, className: classes }) => {
+const Search = ({ className: classes }) => {
   const history = ["Fontanar", "Centro Chia"];
   const color = "#64748b";
 
   return (
     <View
-      style={{ gap: 12 }}
-      className={`rounded-xl overflow-hidden mt-1 mb-4 absolute top-10 left-0 right-0 z-50 px-5 ${classes}`}>
+      style={{ gap: 12, marginTop: Constants.statusBarHeight + 10 }}
+      className={`rounded-xl overflow-hidden mt-1 mb-4 absolute left-0 right-0 z-50 px-5 ${classes}`}>
       <Input
         viewClasses="relative border border-slate-200"
         bgColor="#fff"

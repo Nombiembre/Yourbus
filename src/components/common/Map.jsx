@@ -1,66 +1,97 @@
 import MapView, { Marker } from "react-native-maps";
-import React from "react";
-import { Image, StyleSheet, View } from "react-native";
-import busIcon from "../../assets/Buses/busIcon.png";
-import busIcon2 from "../../assets/Buses/busIcon2.png";
+import React, { useEffect, useRef, useState } from "react";
+import { Image, TouchableOpacity, View } from "react-native";
+import * as Location from "expo-location";
+import { blueDot } from "../../utils/images";
+import nearBuses from "../../constans/naerBuses";
+import Button from "../Button";
+import CustomText from "./CustomText";
+import { useGlobalContext } from "../../context/GlobalProvider";
 
-const Map = ({ location, ...props }) => {
-  const buses = [
-    {
-      latitude: 4.877,
-      longitude: -74.0438127,
-      rotation: 30,
-    },
-    {
-      latitude: 4.879,
-      longitude: -74.0428427,
-      rotation: 15,
-    },
-    {
-      latitude: 4.876,
-      longitude: -74.0428427,
-      rotation: 0,
-    },
-    {
-      latitude: 4.878,
-      longitude: -74.041,
-      rotation: 0,
-    },
-  ];
+const Map = ({ ...props }) => {
+  const { mapaRefe } = useGlobalContext();
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
 
-  let e = {
-    location2: {
-      coords: {
-        accuracy: 49.17499923706055,
-        altitude: 2578,
-        altitudeAccuracy: 1,
-        heading: 0,
-        latitude: 4.8773197,
-        longitude: 4.8773197,
-        speed: 0,
-      },
-      mocked: false,
-      timestamp: 1726351654397,
-    },
+  // #################################################################
+  // ASK FOR PERMISSIONS
+  useEffect(() => {
+    (async () => {
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      setLocation(location);
+    })();
+  }, []);
+  let text = "Waiting..";
+  if (errorMsg) {
+    text = errorMsg;
+  } else if (location) {
+    text = JSON.stringify(location);
+  }
+  // #################################################################
+  // SET INITIAL COORDS
+  const unicocInitialCoords = {
+    latitude: 4.8459175763388656,
+    longitude: -74.03008556886773,
+    latitudeDelta: 0.004,
+    longitudeDelta: 0.03,
   };
 
-  // 4.845938957316678, -74.02994072861068
-  const { location2 } = e;
-  const { latitude, longitude } = location2.coords;
+  const userCoords = {
+    latitude: 4.8459175763388656,
+    longitude: -74.03008556886773,
+  };
+
+  // #################################################################
+  // FIXED MARKER POSITION ON MAP WHEN ZOOM-IN AND ZOOM-OUT
+  // https://github.com/react-native-maps/react-native-maps/issues/3233
+  const getCenterOffsetForAnchor = (anchor, markerWidth, markerHeight) => ({
+    x: markerWidth * 0.5 - markerWidth * anchor.x,
+    y: markerHeight * 0.5 - markerHeight * anchor.y,
+  });
+  const ANCHOR = { x: 0.1, y: 0.5 };
+  // #################################################################
+
   return (
-    <View className="border border-slate-200 rounded-lg min-h-[555px]" style={styles.container}>
+    <View className="border border-slate-200 rounded-lg flex-1 h-full">
       <MapView
-        initialRegion={{
-          latitude: 4.8778197,
-          longitude: -74.0428427,
-          latitudeDelta: 0.001,
-          longitudeDelta: 0.007,
-        }}
-        style={styles.map}>
-        <Marker coordinate={{ latitude: latitude, longitude: longitude }}>
-          <View className="w-50 h-50 bg-blue-500 rounded-full" />
+        initialRegion={unicocInitialCoords}
+        className="w-full h-full"
+        showsUserLocation
+        showsMyLocationButton={false}
+        showsCompass={false}
+        rotateEnabled={false}
+        ref={mapaRefe}>
+        <Marker
+          coordinate={userCoords}
+          anchor={ANCHOR}
+          centerOffset={getCenterOffsetForAnchor(ANCHOR, 13, 13)}>
+          <View className="border border-white rounded-full items-center w-[13] h-[13] bg-blue-700 z-50 justify-center" />
         </Marker>
-        {buses.map((bus, i) => {
+
+        {nearBuses.map((bus, i) => {
+          const { latitude, longitude } = bus;
+          return (
+            <Marker
+              key={i}
+              coordinate={{ latitude: latitude, longitude: longitude }}
+              anchor={ANCHOR}
+              rotation={100}
+              centerOffset={getCenterOffsetForAnchor(ANCHOR, 46, 46)}>
+              <Image
+                source={bus.icon2D}
+                resizeMode="contain"
+                className="max-w-[46px] max-h-[46px]"
+              />
+            </Marker>
+          );
+        })}
+        {/* {buses.map((bus, i) => {
           const { latitude, longitude } = bus;
           return (
             <Marker
@@ -70,20 +101,10 @@ const Map = ({ location, ...props }) => {
               <Image source={busIcon} style={{ resizeMode: "contain", width: 60, height: 60 }} />
             </Marker>
           );
-        })}
+        })} */}
       </MapView>
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-  map: {
-    width: "100%",
-    height: "100%",
-  },
-});
 
 export default Map;

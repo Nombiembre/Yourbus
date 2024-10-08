@@ -9,7 +9,7 @@ export default function AuthLayout({ children, classes }) {
       ]}
       className={`pt-20 ${classes}`}>
       <Image
-        source={require("../assets/CircleBlur.png")}
+        source={require("../assets/images/CircleBlur.png")}
         style={{ width: 1000, height: 1000 }}
         className="absolute -top-60 -right-60 border border-red-200"
       />

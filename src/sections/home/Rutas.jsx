@@ -27,20 +27,19 @@ const Rutas = () => {
     },
   ];
   return (
-    <View className="mt-4">
-      <Title text="Rutas Cercanas" class="text-2xl" />
+    <View className="px-5">
+      <Title text="Rutas Cercanas" class="text-xl" />
 
       <FlatList
         showsHorizontalScrollIndicator={false}
         showsVerticalScrollIndicator={false}
         className="flex-row py-4"
-        horizontal
         data={items}
         renderItem={(item) => {
           return (
             <TouchableOpacity
               activeOpacity={0.6}
-              className="mr-2 bg-white border border-gray-300 rounded-2xl overflow-hidden">
+              className="mr-2 bg-white mb-2 border border-gray-300 rounded-2xl overflow-hidden">
               <Image source={item.item.imagen} className="w-48 h-40" resizeMode="cover" />
               <View className="p-2">
                 <CustomText className="text-lg font-ralesemibold  text-slate-700">

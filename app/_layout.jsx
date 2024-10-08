@@ -3,6 +3,7 @@ import { SplashScreen } from "expo-router";
 import { Stack } from "expo-router/stack";
 import { useEffect } from "react";
 import GlobalProvider from "../src/context/GlobalProvider";
+import { Gesture, GestureHandlerRootView } from "react-native-gesture-handler";
 
 export default function Layout() {
   const [fontsLoaded, error] = useFonts({
@@ -41,19 +42,21 @@ export default function Layout() {
 
   return (
     <GlobalProvider>
-      <Stack
-        screenOptions={{
-          headerTitleAlign: "center",
-          headerTransparent: true,
-          headerTintColor: "#fff",
-          headerTitleStyle: {
-            fontFamily: "Onest-Regular",
-          },
-        }}>
-        <Stack.Screen name="index" options={{ headerShown: false }} />
-        <Stack.Screen name="(auth)" options={{ headerShown: false }} />
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
-      </Stack>
+      <GestureHandlerRootView>
+        <Stack
+          screenOptions={{
+            headerTitleAlign: "center",
+            headerTransparent: true,
+            headerTintColor: "#fff",
+            headerTitleStyle: {
+              fontFamily: "Onest-Regular",
+            },
+          }}>
+          <Stack.Screen name="index" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)" options={{ headerShown: false }} />
+          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        </Stack>
+      </GestureHandlerRootView>
     </GlobalProvider>
   );
 }

@@ -16,6 +16,7 @@
     "@react-native-async-storage/async-storage": "^2.0.0",
     "@react-native-community/blur": "^4.4.0",
     "@stalwartszen/react-native-expo-blur": "^1.0.0",
+    "@types/react": "~18.2.79",
     "babel-eslint": "^10.1.0",
     "eslint-config-prettier": "^9.1.0",
     "eslint-config-standard": "^17.1.0",

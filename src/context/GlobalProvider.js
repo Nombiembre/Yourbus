@@ -1,6 +1,6 @@
 import AsyncStorage from "@react-native-async-storage/async-storage";
 import { getAuth, signInWithCustomToken } from "firebase/auth";
-import React, { createContext, useContext, useEffect, useState } from "react";
+import React, { createContext, useContext, useEffect, useRef, useState } from "react";
 
 const GlobalContext = createContext();
 export const useGlobalContext = () => useContext(GlobalContext);
@@ -9,6 +9,7 @@ const GlobalProvider = ({ children }) => {
   const [userToken, setUserToken] = useState({});
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const mapaRefe = useRef();
 
   const loggedIn = async () => {
     setIsLoading(true);
@@ -16,9 +17,6 @@ const GlobalProvider = ({ children }) => {
       let token = await AsyncStorage.getItem("userToken");
       setUserToken(token);
       setIsLoggedIn(true);
-      const auth = getAuth();
-      const res = await signInWithCustomToken(auth, token);
-      console.log("RES: ", res);
     } catch (e) {
       console.error(e);
     } finally {
@@ -39,6 +37,7 @@ const GlobalProvider = ({ children }) => {
         setIsLoggedIn,
         isLoading,
         setIsLoading,
+        mapaRefe,
       }}>
       {children}
     </GlobalContext.Provider>

@@ -1,68 +1,65 @@
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import HomeLayout from "../../src/layouts/HomeLayout";
 import Search from "../../src/sections/home/Search";
-import Rutas from "../../src/sections/home/Rutas";
 import Map from "../../src/components/common/Map";
-import * as Location from "expo-location";
-import { ScrollView, View } from "react-native";
-import Title from "../../src/components/common/Title";
+import { Image, TouchableOpacity, View } from "react-native";
 import { getAuth } from "firebase/auth";
-import BottomSheet, { BottomSheetView } from "@gorhom/bottom-sheet";
+import MyBottomSheet from "../../src/components/bottomSheet";
+import { BottomSheetFlatList } from "@gorhom/bottom-sheet";
+import nearBuses from "../../src/constans/naerBuses";
+import CustomText from "../../src/components/common/CustomText";
+import { useGlobalContext } from "../../src/context/GlobalProvider";
+import { StatusBar } from "expo-status-bar";
 
 export default function Home() {
   const auth = getAuth();
-  const { displayName } = auth.currentUser;
+  const displayName = auth.currentUser.user;
 
-  // prettier-ignore
+  const { mapaRefe } = useGlobalContext();
 
-  const [location, setLocation] = useState(null);
-  const [errorMsg, setErrorMsg] = useState(null);
+  const focusMap = ({ latitude, longitude }) => {
+    const coords = {
+      latitude: latitude,
+      longitude: longitude,
+      latitudeDelta: 0.002,
+      longitudeDelta: 0.002,
+    };
 
-  useEffect(() => {
-    (async () => {
-      let { status } = await Location.requestForegroundPermissionsAsync();
-      if (status !== "granted") {
-        setErrorMsg("Permission to access location was denied");
-        return;
-      }
-
-      let location = await Location.getCurrentPositionAsync({});
-      setLocation(location);
-    })();
-  }, []);
-
-  let text = "Waiting..";
-  if (errorMsg) {
-    text = errorMsg;
-  } else if (location) {
-    text = JSON.stringify(location);
-  }
-
-  const location2 = {
-    coords: {
-      accuracy: 49.17499923706055,
-      altitude: 2578,
-      altitudeAccuracy: 1,
-      heading: 0,
-      latitude: 4.8773197,
-      longitude: -74.0428127,
-      speed: 0,
-    },
-    mocked: false,
-    timestamp: 1726351654397,
+    mapaRefe.current?.animateToRegion(coords);
   };
 
   return (
     <HomeLayout>
-      <ScrollView showsVerticalScrollIndicator={false}>
-        <View className="px-5 ">
-          <Search className="bg-black" location={location2} />
-        </View>
-        <Map location={location2} />
-        <View className="px-5 pt-2 rounded-t-[40px] bg-white border-t border-slate-200 relative -top-12">
-          <Rutas />
-        </View>
-      </ScrollView>
+      <View className="px-5 ">
+        <Search className="bg-black" />
+      </View>
+      <Map />
+      <MyBottomSheet>
+        <BottomSheetFlatList
+          data={nearBuses}
+          keyExtractor={(_, i) => i}
+          renderItem={({ item }) => (
+            <TouchableOpacity
+              onPress={() =>
+                focusMap({ latitude: item.latitude - 0.0008, longitude: item.longitude })
+              }
+              activeOpacity={0.6}
+              className="flex flex-row justify-between items-center p-4 bg-white rounded-lg">
+              <View className="flex-1 flex flex-row items-center">
+                <Image source={item.icon3D} resizeMode="contain" className="w-14 h-14 mr-4" />
+                <View>
+                  <CustomText className="text-base font-ralesemibold text-slate-800">
+                    {item.Destino}
+                  </CustomText>
+                  <CustomText className="text-sm text-slate-600">{item.name}</CustomText>
+                </View>
+              </View>
+              <View>
+                <CustomText>{item.time} min</CustomText>
+              </View>
+            </TouchableOpacity>
+          )}></BottomSheetFlatList>
+      </MyBottomSheet>
     </HomeLayout>
   );
 }

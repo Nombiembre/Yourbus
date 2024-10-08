@@ -19,7 +19,7 @@ export default function Login() {
 
   const handleSignIn = async () => {
     setIsLoading(true);
-    const res = await UserModel.login(username, password);
+    const res = await UserModel.login("etoro@unicoc.edu.co", "Gei123");
     if (res) {
       AsyncStorage.setItem("userToken", res);
       setUserToken(res);

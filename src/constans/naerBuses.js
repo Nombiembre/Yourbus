@@ -1,0 +1,88 @@
+import { bus3D } from "../utils/images";
+import { bus2D } from "../utils/images";
+
+const nearBuses = [
+  {
+    icon3D: bus3D.red,
+    icon2D: bus2D.red,
+    name: "Alianza",
+    Destino: "Portal 170",
+    time: 1,
+    latitude: 4.846382791552134,
+    longitude: -74.03046752199856,
+  },
+  {
+    icon3D: bus3D.green,
+    icon2D: bus2D.green,
+    name: "Aguila",
+    Destino: "Zipaquira",
+    time: 3,
+    latitude: 4.8451975045584055,
+    longitude: -74.03068718115227,
+  },
+  {
+    icon3D: bus3D.orange,
+    icon2D: bus2D.orange,
+    name: "Flota Chia",
+    Destino: "Chia Terminal",
+    time: 4,
+    latitude: 4.838912184096232,
+    longitude: -74.03170440508917,
+  },
+  {
+    icon3D: bus3D.red,
+    icon2D: bus2D.red,
+    name: "Alianza",
+    Destino: "Tocancipa",
+    time: 4,
+    latitude: 4.842732639716355,
+    longitude: -74.03111298198799,
+  },
+  {
+    icon3D: bus3D.blue,
+    icon2D: bus2D.blue,
+    name: "El Carmen",
+    Destino: "La playa",
+    time: 13,
+    latitude: 4.836030608994118,
+    longitude: -74.03217277569709,
+  },
+  {
+    icon3D: bus3D.red,
+    icon2D: bus2D.red,
+    name: "Alianza",
+    Destino: "Cajica",
+    time: 17,
+    latitude: 4.8315755491235155,
+    longitude: -74.03279112672476,
+  },
+  {
+    icon3D: bus3D.green,
+    icon2D: bus2D.green,
+    name: "Aguila",
+    Destino: "Cajica",
+    time: 21,
+    latitude: 4.817509405143778,
+    longitude: -74.03515617709833,
+  },
+  {
+    icon3D: bus3D.orange,
+    icon2D: bus2D.orange,
+    name: "Flota Chia",
+    Destino: "Chia Terminal",
+    time: 27,
+    latitude: 4.808174821641914,
+    longitude: -74.03662289187449,
+  },
+  {
+    icon3D: bus3D.red,
+    icon2D: bus2D.red,
+    name: "Alianza",
+    Destino: "Suesca",
+    time: 99999,
+    latitude: 4.771378020818968,
+    longitude: -74.04276207588198,
+  },
+];
+
+export default nearBuses;
